@@ -16,6 +16,7 @@
 		56931596217717380037797A /* LJNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56931595217717380037797A /* LJNextViewController.swift */; };
 		5693159821774FF70037797A /* LJBouncePresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693159721774FF70037797A /* LJBouncePresentAnimation.swift */; };
 		5693159A217759410037797A /* LJNormalDismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56931599217759410037797A /* LJNormalDismissAnimation.swift */; };
+		5693159C21783CD70037797A /* LJSwipeUpInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693159B21783CD70037797A /* LJSwipeUpInteractiveTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		56931595217717380037797A /* LJNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJNextViewController.swift; sourceTree = "<group>"; };
 		5693159721774FF70037797A /* LJBouncePresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJBouncePresentAnimation.swift; sourceTree = "<group>"; };
 		56931599217759410037797A /* LJNormalDismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJNormalDismissAnimation.swift; sourceTree = "<group>"; };
+		5693159B21783CD70037797A /* LJSwipeUpInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJSwipeUpInteractiveTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				56931565217715A30037797A /* AppDelegate.swift */,
 				56931593217715D90037797A /* LJMainViewController.swift */,
+				5693159B21783CD70037797A /* LJSwipeUpInteractiveTransition.swift */,
 				56931599217759410037797A /* LJNormalDismissAnimation.swift */,
 				5693159721774FF70037797A /* LJBouncePresentAnimation.swift */,
 				56931595217717380037797A /* LJNextViewController.swift */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5693159821774FF70037797A /* LJBouncePresentAnimation.swift in Sources */,
+				5693159C21783CD70037797A /* LJSwipeUpInteractiveTransition.swift in Sources */,
 				56931596217717380037797A /* LJNextViewController.swift in Sources */,
 				56931566217715A30037797A /* AppDelegate.swift in Sources */,
 				5693159A217759410037797A /* LJNormalDismissAnimation.swift in Sources */,

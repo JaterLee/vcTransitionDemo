@@ -8,21 +8,25 @@
 
 import UIKit
 
-class LJMainViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class LJMainViewController: UIViewController, UIViewControllerTransitioningDelegate, LJNextViewControllerDelegate {
     
     var presentAnimation: LJBouncePresentAnimation = LJBouncePresentAnimation.init()
     
-    var dismissAnimation: 
+    var dismissAnimation: LJNormalDismissAnimation = LJNormalDismissAnimation.init()
+    
+    var transitionController: LJSwipeUpInteractiveTransition = LJSwipeUpInteractiveTransition.init()
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .white
         let button = UIButton.init(type: .roundedRect) as UIButton;
+        button.clipsToBounds = true
         button.bounds = CGRect(x: 0, y: 0, width: 100, height: 50)
         button.center = self.view.center;
         button.setTitle("Click me", for: .normal)
+        button.setTitleColor(.green, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.view.addSubview(button)
         
@@ -31,7 +35,9 @@ class LJMainViewController: UIViewController, UIViewControllerTransitioningDeleg
     @objc func buttonAction() {
         print(#function);
         let nextViewController = LJNextViewController.init()
-        nextViewController.transitioningDelegate = self as? UIViewControllerTransitioningDelegate
+        nextViewController.transitioningDelegate = self
+        nextViewController.delegate = self
+        self.transitionController.wireToViewController(viewController: nextViewController)
         self.present(nextViewController, animated: true, completion: nil)
     }
     
@@ -51,24 +57,28 @@ class LJMainViewController: UIViewController, UIViewControllerTransitioningDeleg
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
+        return self.dismissAnimation
     }
     
     
-    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-    }
-    
+//    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//
+//    }
+//
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
+        return self.transitionController.interacting ? self.transitionController : nil
     }
     
-    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        
+//    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+//
+//    }
+    
+    //MARK - LJNextViewControllerDelegate
+    
+    func nextViewControllerDiDSelectDismiss(currentViewController: LJNextViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
-
-
 }
 
 

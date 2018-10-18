@@ -8,23 +8,32 @@
 
 import UIKit
 
+protocol LJNextViewControllerDelegate: NSObjectProtocol {
+    func nextViewControllerDiDSelectDismiss(currentViewController: LJNextViewController) -> Void
+}
+
 class LJNextViewController: UIViewController {
+    
+    weak open var delegate: LJNextViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .red
+        
+        let button = UIButton.init(type: .roundedRect) as UIButton;
+        button.clipsToBounds = true
+        button.bounds = CGRect(x: 0, y: 0, width: 100, height: 50)
+        button.center = self.view.center;
+        button.setTitle("Dimiss me", for: .normal)
+        button.setTitleColor(.green, for: .normal)
+        button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
+        self.view.addSubview(button)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func buttonAction(sender: Any) -> Void {
+//        if self.delegate?.responds(to: Selector(("nextViewControllerDiDSelectDismiss:")))  == true {
+            self.delegate?.nextViewControllerDiDSelectDismiss(currentViewController: self)
+//        }
     }
-    */
 
 }

@@ -17,18 +17,19 @@ class LJNormalDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning 
         let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
         let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
         
-        let screenBounds = UIScreen.main.bounds
         let initFrame = transitionContext.initialFrame(for: fromVC!)
-        let finalFrame = initFrame.offsetBy(dx: 0, dy: screenBounds.size.height)
+        let finalFrame = CGRect(x: initFrame.size.width/2, y: initFrame.size.height/2, width: 0, height: 0)
         
         let containerView = transitionContext.containerView
         containerView.addSubview(toVC!.view)
         containerView.sendSubviewToBack(toVC!.view)
         
         let duration = self.transitionDuration(using: transitionContext)
+        
         UIView.animate(withDuration: duration, animations: {
             fromVC?.view.frame = finalFrame
-        }, completion: transitionContext.completeTransition(!transitionContext.transitionWasCancelled))
+        }, completion: { (finished) in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
     }
-
 }

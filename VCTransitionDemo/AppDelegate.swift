@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
         let mainViewController = LJMainViewController.init()
         self.window?.rootViewController = mainViewController
         self.window?.backgroundColor = UIColor.white

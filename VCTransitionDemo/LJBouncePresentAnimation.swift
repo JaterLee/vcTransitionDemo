@@ -22,9 +22,8 @@ class LJBouncePresentAnimation: NSObject, UIViewControllerAnimatedTransitioning 
     //如果转换是交互式的而不是percentDriven交互式转换，则此方法只能是nop。
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
-        let screenBounds = UIScreen.main.bounds
         let finalFrame = transitionContext.finalFrame(for: toVC!)
-        toVC?.view.frame = finalFrame.offsetBy(dx: 0, dy: screenBounds.size.height)
+        toVC?.view.frame = CGRect(x: finalFrame.size.width/2, y: finalFrame.size.height/2, width: 0, height: 0)
         
         let containerView = transitionContext.containerView;
         containerView.addSubview((toVC?.view)!)
