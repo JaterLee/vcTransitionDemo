@@ -25,7 +25,7 @@ class LJMainViewController: UIViewController, UIViewControllerTransitioningDeleg
         button.clipsToBounds = true
         button.bounds = CGRect(x: 0, y: 0, width: 100, height: 50)
         button.center = self.view.center;
-        button.setTitle("Click me", for: .normal)
+        button.setTitle("Present", for: .normal)
         button.setTitleColor(.green, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.view.addSubview(button)

@@ -22,9 +22,9 @@ class LJNextViewController: UIViewController {
         
         let button = UIButton.init(type: .roundedRect) as UIButton;
         button.clipsToBounds = true
-        button.bounds = CGRect(x: 0, y: 0, width: 100, height: 50)
-        button.center = self.view.center;
-        button.setTitle("Dimiss me", for: .normal)
+        let screenBounds = UIScreen.main.bounds
+        button.frame = CGRect(x: screenBounds.size.width/2-50, y: screenBounds.size.height/2-25, width: 100, height: 50)
+        button.setTitle("Dimiss", for: .normal)
         button.setTitleColor(.green, for: .normal)
         button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
         self.view.addSubview(button)
